@@ -1,96 +1,99 @@
-# **Building Energy Rating (BER) Dataset Analysis**
+# Building Energy Rating (BER) Analysis
 
-This project focuses on analyzing Ireland's **Building Energy Rating (BER)** data to streamline energy efficiency evaluations for residential properties. The dataset contains over **1 million records and 211 attributes**.
+## Overview
+Homes use a large share of a country’s energy and produce a big part of CO₂ emissions. Making them more energy efficient saves money on bills, helps the environment, and supports government climate goals. The Building Energy Rating (BER) system measures this efficiency on a simple scale from A (best) to G (worst), based on annual energy use per square metre.  
 
+This project uses a dataset of **1 million+ Irish dwellings** to:
+- Identify the **key drivers** of BER scores.  
+- Explore patterns by **year of build, dwelling type, size, heating system and geography**.  
+- Assess the **impact of retrofits** (insulation, boilers, solar).  
+- Provide **recommendations** to improve efficiency and reduce emissions.  
 
-## **Dataset Overview**
+---
 
-- **Source**: SEAI-National BER Research tool ([Link](https://ndber.seai.ie/BERResearchTool/ber/search.aspx)).
-- **Size**: Over 1 million rows, 211 columns (Over 1 GB in size).
-- **Attributes**:
-  - **Energy Ratings**: BER scores and CO2 emissions for properties.
-  - **Property Features**: Construction year, dwelling type, floor area, wall area, roof type, etc.
-  - **Heating Systems**: Types of main and supplementary heating systems, efficiency ratings, and fuel types.
-  - **Energy Usage**: Delivered and primary energy usage for lighting, heating, and ventilation.
-  - **Insulation Data**: Wall and roof U-values, insulation types, and draught-proofing measures.
-  - **Assessment Data**: Date of BER assessment, purpose (sale, rent, or grant), and provisional vs. final ratings.
+## Research Questions
+The work is guided by **10 questions**, grouped into **5 themes**:
 
+**A. Energy Efficiency Factors and Ratings**
 
-## **Possibilities of the Project**
+- RQ1: What are the strongest predictors of BER?  
+- RQ2: How does construction year affect BER?  
+- RQ3: How does dwelling type (detached, apartment, etc.) influence BER?  
+- RQ4: How does floor area relate to energy intensity?  
 
-The BER dataset provides opportunities to:
-1. Explore energy efficiency across properties and regions.
-2. Identify patterns and provide actionable insights for policy-making or marketing strategies.
+**B. Energy & Emissions**
+- RQ5: How do heating systems and fuels affect energy and CO₂?  
+- RQ6: Which dwelling types emit the most CO₂ overall?  
 
-### **Goals**:
-- Identify key factors affecting energy efficiency (e.g., dwelling type, construction year).
-- Compare energy usage patterns and CO2 emissions across regions.
-- Examine trends in energy ratings over time or across building categories.
-- Highlight areas where retrofitting or energy efficiency improvements are needed.
-- Provide visual insights via interactive dashboards to support decision-making.
+**C. Geography**
+- RQ7: Are there regional differences in BER?  
+- RQ8: Do counties differ in energy use and emissions?  
 
+**D. Retrofits**
+- RQ9: How do insulation, solar, and boiler upgrades impact BER?  
 
-## **Key Questions to Explore**
+**E. Targeting Worst Homes**
+- RQ10: How can we identify the least efficient (worst 20%) homes?  
+*RQ_ = Research Question
+---
 
-1. How does construction year influence energy efficiency ratings?
-2. Which regions or property types have the highest CO2 emissions?
-3. What percentage of properties utilize renewable energy sources?
-4. What are the trends in energy usage and emissions across years?
-5. Are larger properties less energy-efficient compared to smaller ones?
-6. Are semi-exposed walls or certain insulation types correlated with higher energy losses?
-7. How do provisional ratings compare with final ratings for new dwellings?
+## Methodology
+- **Data**: SEAI BER Research Tool (~1,048,000 homes, 200+ features).  
+- **Cleaning**: handled missing values, corrected types, removed duplicates.  
+- **Analysis**:  
+  - Correlation checks and feature importance (Random Forest).  
+  - Group comparisons (dwelling type, build era, retrofits).  
+  - Trend analysis with smoothing.  
+  - Decision tree to flag worst-performing homes.  
+- **Visualization**: boxplots, scatter plots, heatmaps, county maps.  
 
+---
 
-## **Project Progress**
+## Key Findings
+- **Fabric dominates**: Wall, roof, and window U-values are the strongest predictors of BER.  
+- **Heating systems**: Efficient boilers/heat pumps improve BER by ~60–80 kWh/m².  
+- **Construction year**: Post-2010 homes are mostly A/B-rated; pre-1980 homes cluster in D–G.  
+- **Dwelling type**: Apartments perform best per m²; detached homes are least efficient.  
+- **Floor area effect**: Larger homes tend to have slightly lower energy use per m² (“dilution effect”).  
+- **Fuel choice matters**: Oil/solid fuels emit 2–3× more CO₂ than gas or heat pumps.  
+- **Regional divide**: East/urban counties (Dublin, Kildare) perform better; west/midlands (Leitrim, Roscommon) lag.  
+- **Retrofits**:  
+  - Wall insulation improves BER by ~20–30 kWh/m².  
+  - Efficient boilers cut ~81 kWh/m².  
+  - Solar has little direct BER effect but helps with CO₂.  
+- **Worst homes**: High wall U-values + inefficient boilers = strong predictor of F/G ratings.  
 
-This project is ongoing, with the next steps focused on **Exploratory Data Analysis (EDA)** and **Dashboard Development** using **Power BI**. The cleaned dataset is now ready for detailed analysis.
+---
 
+## Recommendations
+1. **Fabric + Heat First**  
+   - Prioritise wall/roof insulation and efficient heating upgrades before renewables.  
+2. **Target Worst Performers**  
+   - Focus on pre-1980 rural homes with poor insulation and old boilers.  
+3. **Regional Focus**  
+   - Direct grants and retrofit schemes to west/midland counties.  
+4. **Policy & Equity**  
+   - Support fuel-poor households.  
+   - Bundle grants (insulation + heat pump) for maximum impact.  
 
-## **Steps Taken**
+---
+## Repository Structure
+├── BERcleaning.ipynb          # Data cleaning and preparation  
+├── BER_analysis_final.ipynb   # Main analysis and visualizations  
+├── BER_analysis_report.docx   # Full detailed report (academic format)  
+├── README.md                  # Project overview (this file)  
 
-1. **Data Loading and Inspection**:
-   - Loaded the dataset into a Python environment using **Azure Machine Learning Studio**.
-   - Inspected column types, unique values, and memory usage to design a cleaning strategy.
+---
 
-2. **Data Cleaning Strategy**:
-   - Focused on preserving data integrity while ensuring SQL compatibility.
-   - Addressed inconsistencies such as:
-     - Incorrect relationships between `Year_of_Construction` and `DateOfAssessment`.
-     - Anomalous values in `WallArea`, `UValue`, and Boolean columns.
-   - Resolved missing values using strategies:
-     - **Categorical**: Filled with "Unknown."
-     - **Numerical**: Imputed using the median.
-     - **Boolean**: Replaced missing values with `False`.
+## Tools & Libraries
+- Python: pandas, NumPy, matplotlib, seaborn, scikit-learn
+- Azure Machine Learning – for dataset connection and data cleaning workflow  
+- Azure Blob Storage – for storing and accessing the raw dataset
+- Jupyter Notebook  
+- Power BI (Inprogress)
+- Data Source: [SEAI BER Research Tool](https://ndber.seai.ie/BERResearchTool/ber/search.aspx)  
 
-3. **Column Standardization**:
-   - Renamed columns to SQL-compatible formats by replacing spaces and special characters.
+---
 
-4. **Handling Outliers**:
-   - Kept outliers for later analysis in the **Exploratory Data Analysis (EDA)** phase.
-
-5. **Key Inconsistencies Identified**:
-   - Example: Semi-exposed walls with unusually low UValues.
-   - Retained these anomalies for further investigation during EDA.
-
-6. **SQL Compatibility Preparation**:
-   - Converted Boolean columns to `0/1`.
-   - Transformed datetime columns to string format.
-   - Flagged columns with >50% missing values for potential exclusion during analysis.
-
-7. **SQL Server Integration**:
-   - Prepared the cleaned dataset for ingestion into **Azure SQL Database** using **Azure Data Factory**.
-   - Ensured schema compatibility and uploaded the data for further analysis.
-
-
-## **Tools and Technologies Used So Far**
-
-- **Python**: Pandas, NumPy for data processing and cleaning.
-- **Azure Ecosystem**:
-  - **Azure Blob Storage**: For raw and cleaned dataset storage.
-  - **Azure Machine Learning Studio**: For data cleaning and preparation.
-  - **Azure SQL Database**: For structured data storage.
-  - **Azure Data Factory**: For creating pipelines to move data between services.
-- **Power BI**: Planned for dashboard development.
-- **VS Code**: Integrated with Azure ML for coding.
-
-Continued
+## Author
+**Md Shihab As Samad**  
