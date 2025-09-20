@@ -9,7 +9,6 @@ This project uses a dataset of **1 million+ Irish dwellings** to:
 - Assess the **impact of retrofits** (insulation, boilers, solar).  
 - Provide **recommendations** to improve efficiency and reduce emissions.  
 
----
 
 ## Research Questions
 The work is guided by **10 questions**, grouped into **5 themes**:
@@ -35,7 +34,7 @@ The work is guided by **10 questions**, grouped into **5 themes**:
 **E. Targeting Worst Homes**
 - RQ10: How can we identify the least efficient (worst 20%) homes?  
 *RQ_ = Research Question
----
+
 
 ## Methodology
 - **Data**: SEAI BER Research Tool (~1,048,000 homes, 200+ features).  
@@ -47,7 +46,7 @@ The work is guided by **10 questions**, grouped into **5 themes**:
   - Decision tree to flag worst-performing homes.  
 - **Visualization**: boxplots, scatter plots, heatmaps, county maps.  
 
----
+
 
 ## Key Insights
 
@@ -56,14 +55,13 @@ Wall, roof, and window U-values are the strongest predictors of BER.
 <img width="468" height="273" alt="Picture1" src="https://github.com/user-attachments/assets/475619e2-22bd-4f0f-8011-40830a2ddd4e" />
 Feature Importance: Fabric vs Systems
 
----
 
 ### 2. Year of construction matters
 Post-2010 homes are mostly A/B-rated, while pre-1980 homes cluster in D–G.  
 <img width="561" height="396" alt="Picture2" src="https://github.com/user-attachments/assets/7b104e6d-ee99-43bf-ba91-0c3e9db88207" />
 BER vs Year of Construction
 
----
+
 
 ### 3. Dwelling type differences
 - Apartments are most efficient per m².  
@@ -71,7 +69,7 @@ BER vs Year of Construction
 <img width="541" height="368" alt="Picture3" src="https://github.com/user-attachments/assets/1cee6bbf-06c9-4d93-b833-9c928ef5dd12" />
 BER by Dwelling Type
 
----
+
 
 ### 4. Heating systems & fuel
 - Efficient boilers/heat pumps reduce BER.  
@@ -79,14 +77,14 @@ BER by Dwelling Type
 <img width="541" height="368" alt="Picture3" src="https://github.com/user-attachments/assets/7e77ef91-df9e-4685-8bc8-212bd086099f" />
 Impact of Boiler Efficiency on BER
 
----
+
 
 ### 5. Regional differences
 Eastern counties (Dublin, Kildare, Meath) perform best; West/Midlands lag behind.  
 <img width="624" height="688" alt="Picture5" src="https://github.com/user-attachments/assets/11fe9d8c-25b6-4209-bbc0-ba65077ea0c9" />
 BER Distribution by County
 
----
+
 
 ## Recommendations
 1. **Fabric + Heat First**  
@@ -99,7 +97,7 @@ BER Distribution by County
    - Support fuel-poor households.  
    - Bundle grants (insulation + heat pump) for maximum impact.  
 
----
+
 
 ## Tools & Libraries
 - Python: pandas, NumPy, matplotlib, seaborn, scikit-learn
@@ -108,8 +106,3 @@ BER Distribution by County
 - Jupyter Notebook  
 - Power BI (Inprogress)
 - Data Source: [SEAI BER Research Tool](https://ndber.seai.ie/BERResearchTool/ber/search.aspx)  
-
----
-
-## Author
-**Md Shihab As Samad**  
