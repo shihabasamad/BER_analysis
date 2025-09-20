@@ -49,19 +49,42 @@ The work is guided by **10 questions**, grouped into **5 themes**:
 
 ---
 
-## Key Findings
-- **Fabric dominates**: Wall, roof, and window U-values are the strongest predictors of BER.  
-- **Heating systems**: Efficient boilers/heat pumps improve BER by ~60–80 kWh/m².  
-- **Construction year**: Post-2010 homes are mostly A/B-rated; pre-1980 homes cluster in D–G.  
-- **Dwelling type**: Apartments perform best per m²; detached homes are least efficient.  
-- **Floor area effect**: Larger homes tend to have slightly lower energy use per m² (“dilution effect”).  
-- **Fuel choice matters**: Oil/solid fuels emit 2–3× more CO₂ than gas or heat pumps.  
-- **Regional divide**: East/urban counties (Dublin, Kildare) perform better; west/midlands (Leitrim, Roscommon) lag.  
-- **Retrofits**:  
-  - Wall insulation improves BER by ~20–30 kWh/m².  
-  - Efficient boilers cut ~81 kWh/m².  
-  - Solar has little direct BER effect but helps with CO₂.  
-- **Worst homes**: High wall U-values + inefficient boilers = strong predictor of F/G ratings.  
+## Key Insights
+
+### 1. Fabric drives performance
+Wall, roof, and window U-values are the strongest predictors of BER.  
+<img width="468" height="273" alt="Picture1" src="https://github.com/user-attachments/assets/475619e2-22bd-4f0f-8011-40830a2ddd4e" />
+Feature Importance: Fabric vs Systems
+
+---
+
+### 2. Year of construction matters
+Post-2010 homes are mostly A/B-rated, while pre-1980 homes cluster in D–G.  
+<img width="561" height="396" alt="Picture2" src="https://github.com/user-attachments/assets/7b104e6d-ee99-43bf-ba91-0c3e9db88207" />
+BER vs Year of Construction
+
+---
+
+### 3. Dwelling type differences
+- Apartments are most efficient per m².  
+- Detached homes are least efficient.  
+<img width="541" height="368" alt="Picture3" src="https://github.com/user-attachments/assets/1cee6bbf-06c9-4d93-b833-9c928ef5dd12" />
+BER by Dwelling Type
+
+---
+
+### 4. Heating systems & fuel
+- Efficient boilers/heat pumps reduce BER.  
+- Oil/solid fuel homes emit 2–3× more CO₂ than gas/heat pumps.  
+<img width="541" height="368" alt="Picture3" src="https://github.com/user-attachments/assets/7e77ef91-df9e-4685-8bc8-212bd086099f" />
+Impact of Boiler Efficiency on BER
+
+---
+
+### 5. Regional differences
+Eastern counties (Dublin, Kildare, Meath) perform best; West/Midlands lag behind.  
+<img width="624" height="688" alt="Picture5" src="https://github.com/user-attachments/assets/11fe9d8c-25b6-4209-bbc0-ba65077ea0c9" />
+BER Distribution by County
 
 ---
 
@@ -75,14 +98,6 @@ The work is guided by **10 questions**, grouped into **5 themes**:
 4. **Policy & Equity**  
    - Support fuel-poor households.  
    - Bundle grants (insulation + heat pump) for maximum impact.  
-
----
-## Repository Structure
-├── BERcleaning.ipynb          # Data cleaning and preparation  
-├── BER_analysis_final.ipynb   # Main analysis and visualizations  
-├── BER_analysis_report        # Full detailed report (academic format) 
-├── Datasets                   # Initial and cleaned datasets links  
-├── README.md                  # Project overview (this file)  
 
 ---
 
